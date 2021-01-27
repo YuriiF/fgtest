@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { selectIsAuthenticated } from './auth/auth.slice';
-// import { Dashboard } from '../components';
 
 const Auth = lazy(() => import('../app/auth/Auth'));
 const Dashboard = lazy(() => import('../components/dashboard/Dashboard'));
