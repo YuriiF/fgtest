@@ -3,6 +3,7 @@ import { Grid, Box } from 'react-raster';
 import { Heading } from 'rendition';
 import { css } from 'styled-components';
 import { StockList } from '../stock-list/StockList';
+import { StockItem } from '../stock-item/StockItem';
 import { StockChart } from '../stock-chart/StockChart';
 import { SearchForm } from '../search-form/SearchForm';
 import Favorites from '../../app/features/favorite/Favorites';
@@ -35,7 +36,7 @@ export function Dashboard(props: DashboardProps) {
           Search for Stock Symbol
         </Heading.h4>
         <SearchForm />
-        <Favorites />
+        <StockItem />
       </Box>
       <Box cols={[12, 12, 9]}>
         <Box cols={[12]}>
@@ -45,6 +46,7 @@ export function Dashboard(props: DashboardProps) {
           <Heading.h4 bold padding={8}>
             Latest available data
           </Heading.h4>
+          <span>Click on the row to load the chart for the stock</span>
           <StockList />
         </Box>
       </Box>

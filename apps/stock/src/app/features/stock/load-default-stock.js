@@ -12,7 +12,7 @@ export const stocks = {
     'DGS',
     'YLDE',
     'NINOF',
-    'SVLKF'
+    'SVLKF',
   ],
   entities: {
     GOOG: {
@@ -24,7 +24,8 @@ export const stocks = {
       t: 1611619200,
       id: 'GOOG',
       changeFromLastDay: '0.69',
-      isActive: true
+      isActive: true,
+      isFavorite: true,
     },
     AAPL: {
       c: 142.1947,
@@ -35,7 +36,8 @@ export const stocks = {
       t: 1611619200,
       id: 'AAPL',
       changeFromLastDay: '-0.51',
-      isActive: true
+      isActive: false,
+      isFavorite: true,
     },
     IMSXF: {
       c: 7.021,
@@ -46,7 +48,8 @@ export const stocks = {
       t: 1611671400,
       id: 'IMSXF',
       changeFromLastDay: '0.00',
-      isActive: true
+      isActive: false,
+      isFavorite: true,
     },
     PMAR: {
       c: 28.55,
@@ -57,7 +60,8 @@ export const stocks = {
       t: 1611619200,
       id: 'PMAR',
       changeFromLastDay: '-0.14',
-      isActive: true
+      isActive: false,
+      isFavorite: true,
     },
     PPSHY: {
       c: 0,
@@ -68,7 +72,8 @@ export const stocks = {
       t: 0,
       id: 'PPSHY',
       changeFromLastDay: 'NaN',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     FSNV: {
       c: 0,
@@ -79,7 +84,8 @@ export const stocks = {
       t: 0,
       id: 'FSNV',
       changeFromLastDay: 'NaN',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     IUSB: {
       c: 54.347,
@@ -90,7 +96,8 @@ export const stocks = {
       t: 1611619200,
       id: 'IUSB',
       changeFromLastDay: '0.00',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     JELD: {
       c: 28.565,
@@ -101,7 +108,8 @@ export const stocks = {
       t: 1611619200,
       id: 'JELD',
       changeFromLastDay: '-1.19',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     CYBD: {
       c: 0.0044,
@@ -112,7 +120,8 @@ export const stocks = {
       t: 1611671400,
       id: 'CYBD',
       changeFromLastDay: 'NaN',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     DGS: {
       c: 48.535,
@@ -123,7 +132,8 @@ export const stocks = {
       t: 1611619200,
       id: 'DGS',
       changeFromLastDay: '-0.06',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     YLDE: {
       c: 36.01,
@@ -134,7 +144,8 @@ export const stocks = {
       t: 1611619200,
       id: 'YLDE',
       changeFromLastDay: '0.03',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     NINOF: {
       c: 8.2,
@@ -145,7 +156,8 @@ export const stocks = {
       t: 1611671400,
       id: 'NINOF',
       changeFromLastDay: '0.49',
-      isActive: true
+      isActive: false,
+      isFavorite: false,
     },
     SVLKF: {
       c: 1.35,
@@ -156,9 +168,10 @@ export const stocks = {
       t: 1611694019,
       id: 'SVLKF',
       changeFromLastDay: '0.74',
-      isActive: true
-    }
+      isActive: false,
+      isFavorite: false,
+    },
   },
   loadingStatus: 'not loaded',
   error: null,
-}
+};

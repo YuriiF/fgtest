@@ -23,6 +23,7 @@ export interface StockEntity {
   c: number;
   changeFromLastDay: number;
   isActive: boolean;
+  isFavorite: boolean;
 }
 
 export interface StockState extends EntityState<StockEntity> {
@@ -30,7 +31,11 @@ export interface StockState extends EntityState<StockEntity> {
   error: string;
 }
 
-export const stockAdapter = createEntityAdapter<StockEntity>({});
+export const stockAdapter = createEntityAdapter<StockEntity>({
+  sortComparer: (a, b) => {
+    return a.isFavorite === b.isFavorite ? 0 : a.isFavorite ? -1 : 1;
+  },
+});
 
 export const fetchStock = createAsyncThunk(
   'stock/fetchStatus',
@@ -59,7 +64,7 @@ export const fetchStock = createAsyncThunk(
 );
 // @ts-ignore
 export const initialStockState: StockState = stockAdapter.getInitialState({
- ...stocks
+  ...stocks,
 });
 
 export const stockSlice = createSlice({
@@ -68,6 +73,7 @@ export const stockSlice = createSlice({
   reducers: {
     add: stockAdapter.addOne,
     remove: stockAdapter.removeOne,
+    update: stockAdapter.updateOne,
   },
   extraReducers: (builder) => {
     builder
@@ -106,12 +112,16 @@ export const stockActions = stockSlice.actions;
  * Export selectors to query state.
  * For use with the `useSelector` hook.
  */
-const { selectAll, selectEntities } = stockAdapter.getSelectors();
+const { selectById, selectAll, selectEntities } = stockAdapter.getSelectors();
 
 export const getStockState = (rootState: unknown): StockState =>
   rootState[STOCK_FEATURE_KEY];
 
 export const selectAllStock = createSelector(getStockState, selectAll);
+
+export const selectFavoritesStocks = createSelector(selectAllStock, (stocks) =>
+  stocks.filter((item) => item.isFavorite),
+);
 
 export const selectStockEntities = createSelector(
   getStockState,
