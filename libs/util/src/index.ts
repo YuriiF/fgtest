@@ -1,3 +1,11 @@
 export * from './lib/server';
 export * from './lib/routes/user';
-export * from './lib/axios/apiAxios';
+export * from './lib/routes/favorite';
+export { default as apiAxios } from './lib/axios/apiAxios';
+export * from './lib/errors/handle-error';
+export * from './lib/alert/show-alert';
+export * from './lib/finnhub/apiFinnhub';
+export { default as apiFinnhubAxios } from './lib/finnhub/apiFinnhubAxios';
+export { default as api } from './lib/services/api';
+export * from './lib/services/api-config';
+export { default as stockAPI } from './lib/axios/stock';
