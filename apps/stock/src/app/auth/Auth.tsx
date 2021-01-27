@@ -43,6 +43,7 @@ const Auth: FC = () => {
       <Card small width="33%" margin="auto">
         <form onSubmit={handleSubmit(submitForm)}>
           <div className="inputWrapper">
+            <span>user: admin</span>
             <Input
               ref={register}
               name="username"
@@ -55,6 +56,7 @@ const Auth: FC = () => {
           </div>
 
           <div className="inputWrapper">
+            <span>pass: admin</span>
             <Input
               ref={register}
               name="password"
