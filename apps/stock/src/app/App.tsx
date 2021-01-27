@@ -1,11 +1,12 @@
-import React from 'react';
-
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { selectIsAuthenticated } from './auth/auth.slice';
+// import { Dashboard } from '../components';
 
-import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
-
-import { Route, Link } from 'react-router-dom';
+const Auth = lazy(() => import('../app/auth/Auth'));
+const Dashboard = lazy(() => import('../components/dashboard/Dashboard'));
 
 const StyledApp = styled.div`
   font-family: sans-serif;
@@ -22,14 +23,24 @@ const StyledApp = styled.div`
   }
 `;
 
-export function App() {
-  return (
-    <StyledApp>
-      <main>
-        <h1>App</h1>
-      </main>
-    </StyledApp>
+const App = () => {
+  let isLoggedIn = useSelector(
+    selectIsAuthenticated
   );
-}
+
+  // isLoggedIn = true;
+
+  return (
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Suspense fallback={<p>Page loading ...</p>}>
+            {isLoggedIn ? <Dashboard /> : <Auth />}
+          </Suspense>
+        </Route>
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;
