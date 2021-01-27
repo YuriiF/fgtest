@@ -53,7 +53,8 @@
         "serve": {
           "executor": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "stock:build"
+            "buildTarget": "stock:build",
+            "proxyConfig": "apps/stock/proxy.conf.json"
           },
           "configurations": {
             "production": {
