@@ -72,4 +72,10 @@ Clone the project to local. Navigate into `root` directory of monorepo and run:
   $ npm run nx run stock:serve
 ```
 
+In case there is problem with install, some bug, or something missiing, please contact me back it's can happen, i maybe miss something to commit or push as it was many changes in last hours.
 
+I'm tried to showcase different approach for async handling, so there is call from Redux with redux thunk also normal call just with useEffects its not a bug it's by purpose. Also state is handling as normalized and there some slices that are writed as plain object not follow the 'entity' (db) like approach.
+
+DevStack (monorepo) is setup to be prepared as production ready, also linting and typescript a.s.o.
+
+Folder structure is not the best i did not have a lot of time to make it right.
