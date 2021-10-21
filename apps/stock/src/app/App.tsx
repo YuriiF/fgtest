@@ -27,7 +27,7 @@ const App = () => {
     selectIsAuthenticated
   );
 
-  // isLoggedIn = true;
+  isLoggedIn = true;
 
   return (
     <Router>

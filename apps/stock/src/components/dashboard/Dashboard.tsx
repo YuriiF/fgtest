@@ -6,7 +6,7 @@ import { StockList } from '../stock-list/StockList';
 import { StockItem } from '../stock-item/StockItem';
 import { StockChart } from '../stock-chart/StockChart';
 import { SearchForm } from '../search-form/SearchForm';
-import Favorites from '../../app/features/favorite/Favorites';
+import { NeuralNetworkSettings } from '../index';
 
 const bg = css`
   background-color: green;
@@ -52,8 +52,9 @@ export function Dashboard(props: DashboardProps) {
       </Box>
       <Box cols={[12]}>
         <Heading.h4 bold padding={8}>
-          calculation
+          Prediction settings
         </Heading.h4>
+        <NeuralNetworkSettings />
       </Box>
     </Grid>
   );
