@@ -6,19 +6,9 @@ import { StockList } from '../stock-list/StockList';
 import { StockItem } from '../stock-item/StockItem';
 import { StockChart } from '../stock-chart/StockChart';
 import { SearchForm } from '../search-form/SearchForm';
-import { NeuralNetworkSettings } from '../index';
+import { NeuralNetworkSettings } from '../neural-network-settings/NeuralNetworkSettings';
 
-const bg = css`
-  background-color: green;
-`;
-
-const headingPadding = css`
-  padding: 8px;
-`;
-
-export interface DashboardProps {}
-
-export function Dashboard(props: DashboardProps) {
+export function Dashboard() {
   return (
     <Grid
       breakpoints={[0, 400, 800, 1200]}
