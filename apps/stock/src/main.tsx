@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -36,13 +35,9 @@ const load = (Component = App) => {
 
 load(App);
 
-/**
- * (module as any).hot fixes TypeScript error.
- */
-if ((module as any).hot) {
-  (module as any).hot.accept(['./app/App'], () => {
+if (module.hot) {
+  module.hot.accept(['./app/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const App = require('./app/App').default;
     load(App);
   });

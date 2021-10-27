@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
@@ -8,9 +7,8 @@ const store = configureStore({
   reducer: rootReducer,
 });
 
-if (process.env.NODE_ENV === 'development' && (module as any).hot) {
-  (module as any).hot.accept('../app/features/rootReducer', () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
+if (process.env.NODE_ENV === 'development' && module.hot) {
+  module.hot.accept('../app/features/rootReducer', () => {
     const newRootReducer = require('../app/features/rootReducer').default;
     store.replaceReducer(newRootReducer);
   });
