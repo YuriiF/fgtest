@@ -5,7 +5,6 @@ import type {} from 'styled-components/cssprop';
 
 import {
   selectAllStock,
-  selectFavoritesStocks,
   stockActions,
 } from '../../app/features/stock/stock.slice';
 
