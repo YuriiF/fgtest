@@ -84,9 +84,6 @@ export const stockSlice = createSlice({
       .addCase(
         fetchStock.fulfilled,
         (state: StockState, action: PayloadAction<StockEntity>) => {
-          // stockAdapter.setAll(state, action.payload);
-          console.log(state);
-          console.log(action);
           stockAdapter.addOne(state, action.payload);
           state.loadingStatus = 'loaded';
         },
