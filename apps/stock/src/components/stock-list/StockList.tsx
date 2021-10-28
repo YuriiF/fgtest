@@ -7,12 +7,9 @@ import type {} from 'styled-components/cssprop';
 import { selectAllStock } from '../../app/features/stock/stock.slice';
 import { setActiveStockId } from '../../app/features/stock/stockChart.slice';
 
-/* eslint-disable-next-line */
-export interface StockListProps {}
+const formatToPercent = (percent: number) => `${percent} %`;
 
-const formatToPercent = (percent) => `${percent} %`;
-
-const cellTextColor = (v: any, rv: string) => {
+const cellTextColor = (v: string, rv: string) => {
   if (parseFloat(rv) < 0) {
     return { style: { color: 'red' } };
   }
@@ -23,7 +20,7 @@ const cellTextColor = (v: any, rv: string) => {
 const formatDate = (v: number, rv: any) =>
   `${dayjs(v * 1000).format('DD.MM.YY HH:MM:ss')}`;
 
-export function StockList(props: StockListProps) {
+export function StockList() {
   const stock = useSelector(selectAllStock);
   const dispatch = useDispatch();
 
