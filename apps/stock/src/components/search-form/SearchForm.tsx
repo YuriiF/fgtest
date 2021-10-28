@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Card, Input } from 'rendition';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { fetchStock } from '../../app/features/stock/stock.slice';
+import type {} from 'styled-components/cssprop';
 
-/* eslint-disable-next-line */
-export interface SearchFormProps {}
+import { fetchStock } from '../../app/features/stock/stock.slice';
 
 const StyledCard = styled(Card)`
   border-radius: 2px;
@@ -19,10 +19,9 @@ const schema = Yup.object().shape({
     .min(1, 'Symbol should have minimum one character'),
 });
 
-export function SearchForm(props: SearchFormProps) {
+export function SearchForm() {
   const { handleSubmit, register, errors } = useForm({
-    /* @ts-ignore */
-    validationSchema: schema,
+    resolver: yupResolver(schema),
   });
 
   const dispatch = useDispatch();
@@ -30,8 +29,8 @@ export function SearchForm(props: SearchFormProps) {
   const handleSearchSubmit = async ({ symbol }) => {
     let startDate = Math.round(new Date().getTime() / 1000);
     let endDate = startDate - 72 * 3600;
-    try {
 
+    try {
       dispatch(fetchStock(symbol.toUpperCase()));
     } catch (error) {
       console.log(error);
@@ -53,7 +52,6 @@ export function SearchForm(props: SearchFormProps) {
         <Button
           type="submit"
           width={1}
-          // @ts-ignore
           css={`
             border-radius: 4px;
           `}
