@@ -1,9 +1,11 @@
 import React from 'react';
 import { Table } from 'rendition';
 import { useDispatch, useSelector } from 'react-redux';
+import dayjs from 'dayjs';
+import type {} from 'styled-components/cssprop';
+
 import { selectAllStock } from '../../app/features/stock/stock.slice';
 import { setActiveStockId } from '../../app/features/stock/stockChart.slice';
-import dayjs from 'dayjs';
 
 /* eslint-disable-next-line */
 export interface StockListProps {}
@@ -25,11 +27,11 @@ export function StockList(props: StockListProps) {
   const stock = useSelector(selectAllStock);
   const dispatch = useDispatch();
 
-  const handleRowClick = (event) => {
-    if(event?.id){
+  const handleRowClick = (event: { id: string }) => {
+    if (event?.id) {
       dispatch(setActiveStockId(event.id));
     }
-  }
+  };
 
   return (
     <Table
@@ -81,7 +83,6 @@ export function StockList(props: StockListProps) {
       data={stock}
       onRowClick={handleRowClick}
       rowKey="id"
-      // @ts-ignore
       css={`
         background-color: white;
       `}
