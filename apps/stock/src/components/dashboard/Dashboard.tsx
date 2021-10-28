@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, Box } from 'react-raster';
 import { Heading } from 'rendition';
-import { css } from 'styled-components';
 import { StockList } from '../stock-list/StockList';
 import { StockItem } from '../stock-item/StockItem';
 import { StockChart } from '../stock-chart/StockChart';
