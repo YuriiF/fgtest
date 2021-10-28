@@ -1,6 +1,7 @@
 import { stockAPI } from '@fgtest/util';
 import { stockChartActions } from './stockChart.slice';
 import { stocks } from './load-default-stock';
+import { RootState } from '../rootReducer';
 
 import {
   createAsyncThunk,
@@ -39,7 +40,7 @@ export const stockAdapter = createEntityAdapter<StockEntity>({
 
 export const fetchStock = createAsyncThunk(
   'stock/fetchStatus',
-  async (stockSymbol: any, thunkAPI) => {
+  async (stockSymbol: string, thunkAPI) => {
     const { data } = await stockAPI.get('/quote', {
       params: {
         symbol: stockSymbol,
@@ -62,10 +63,10 @@ export const fetchStock = createAsyncThunk(
     };
   },
 );
-// @ts-ignore
-export const initialStockState: StockState = stockAdapter.getInitialState({
+
+export const initialStockState = stockAdapter.getInitialState({
   ...stocks,
-});
+}) as StockState;
 
 export const stockSlice = createSlice({
   name: STOCK_FEATURE_KEY,
@@ -114,7 +115,7 @@ export const stockActions = stockSlice.actions;
  */
 const { selectById, selectAll, selectEntities } = stockAdapter.getSelectors();
 
-export const getStockState = (rootState: unknown): StockState =>
+export const getStockState = (rootState: RootState): StockState =>
   rootState[STOCK_FEATURE_KEY];
 
 export const selectAllStock = createSelector(getStockState, selectAll);
