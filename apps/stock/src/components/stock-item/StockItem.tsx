@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Card, Checkbox } from 'rendition';
-import { css } from 'styled-components';
+import type {} from 'styled-components/cssprop';
+
 import {
   selectAllStock,
   selectFavoritesStocks,
@@ -9,14 +10,13 @@ import {
 } from '../../app/features/stock/stock.slice';
 
 import { useDispatch } from 'react-redux';
-/* eslint-disable-next-line */
-export interface StockItemProps {}
 
-const FavoriteRow = ({ favorite }: any) => {
+const FavoriteRow = ({ favorite }) => {
   const dispatch = useDispatch();
 
-  const handleChange = (ev) => {
+  const handleChange = (ev: { target: { id: string } }) => {
     const { id } = ev.target;
+
     if (id) {
       dispatch(
         stockActions.update({
@@ -36,7 +36,6 @@ const FavoriteRow = ({ favorite }: any) => {
         label={favorite?.id}
         onChange={handleChange}
         reverse
-        // @ts-ignore
         css={`
           background-color: ${favorite.isFavorite ? 'yellow' : 'white'};
         `}
@@ -46,7 +45,7 @@ const FavoriteRow = ({ favorite }: any) => {
   );
 };
 
-export function StockItem(props: StockItemProps) {
+export function StockItem() {
   const [stockRows, setStockRows] = useState([]);
   const allStocks = useSelector(selectAllStock);
 
@@ -58,7 +57,6 @@ export function StockItem(props: StockItemProps) {
     <Card
       title="Favorites Stocks"
       rows={rows}
-      // @ts-ignore
       css={`
         border-radius: 4px;
         margin-top: 16px;
