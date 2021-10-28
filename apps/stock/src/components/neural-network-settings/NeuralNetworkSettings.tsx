@@ -21,7 +21,7 @@ export function NeuralNetworkSettings(props: NeuralNetworkSettingsProps) {
           <Button>Third</Button>
         </React.Fragment>
       </ButtonGroup>
-      <Input autoComplete onChange={function noRefCheck() {}} />
+      <Input onChange={function noRefCheck() {}} />
       <Input onChange={function noRefCheck() {}} />
       <Input onChange={function noRefCheck() {}} />
       <Input onChange={function noRefCheck() {}} />
