@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react';
 import { Button, Card, Container, Input } from 'rendition';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../store/store';
 
 import { User } from '@fgtest/stock/interfaces';
 import { authActions } from './auth.slice';
@@ -18,19 +19,18 @@ const schema = Yup.object().shape({
 
 const Auth: FC = () => {
   const { handleSubmit, register, errors } = useForm<User>({
-    /* @ts-ignore */
-    validationSchema: schema,
+    resolver: yupResolver(schema),
   });
 
   const [isLogin, setIsLogin] = useState(true);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const submitForm = async (data: User) => {
     try {
       const path = isLogin ? '/auth/login' : '/auth/signup';
-      // @ts-ignore
       const { payload } = await dispatch(setUser({ path, data }));
       const { token } = payload;
+
       dispatch(authActions.addToken(token));
       dispatch(authActions.setIsAuth(true));
     } catch (error) {

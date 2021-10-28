@@ -3,6 +3,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { authReducer, AUTH_FEATURE_KEY } from '../auth/auth.slice';
 import { userReducer, USER_FEATURE_KEY } from '../user/user.slice';
 import { stockReducer, STOCK_FEATURE_KEY } from './stock/stock.slice';
+
 import {
   stockChartReducer,
   STOCK_CHART_FEATURE_KEY,
