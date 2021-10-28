@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
 import { User } from '@fgtest/stock/interfaces';
 import { apiAxios } from '@fgtest/util';
+import { RootState } from '../features/rootReducer';
 
 export const USER_FEATURE_KEY = 'user';
 
@@ -15,7 +15,7 @@ export interface UserState extends User {
  */
 export const setUser = createAsyncThunk(
   'user/fetchStatus',
-  async (arg: any, thunkAPI) => {
+  async (arg: any) => {
     const response = await apiAxios.post<User, any>(arg.path, arg.data);
     return response;
   },
@@ -58,5 +58,5 @@ export const userReducer = userSlice.reducer;
 
 export const userActions = userSlice.actions;
 
-export const getUserState = (rootState: unknown): UserState =>
+export const getUserState = (rootState: RootState): UserState =>
   rootState[USER_FEATURE_KEY];
