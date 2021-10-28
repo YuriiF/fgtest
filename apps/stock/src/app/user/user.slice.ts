@@ -10,13 +10,21 @@ export interface UserState extends User {
   error: string;
 }
 
+export interface UserData {
+  data: User;
+  path: string;
+}
+
 /**
  * Export an effect using createAsyncThunk from
  */
 export const setUser = createAsyncThunk(
   'user/fetchStatus',
-  async (arg: any) => {
-    const response = await apiAxios.post<User, any>(arg.path, arg.data);
+  async (userData: UserData) => {
+    const response = await apiAxios.post<User, any>(
+      userData.path,
+      userData.data,
+    );
     return response;
   },
 );

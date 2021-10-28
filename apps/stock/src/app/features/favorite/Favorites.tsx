@@ -71,7 +71,6 @@ const Favorites: FC = () => {
       if (favorite && user) {
         dispatch(addFavorite([favorite] as Favorite[]));
         dispatch(addFavorite([favorite] as Favorite[]));
-        dispatch(setUser(_user));
 
         return Swal.fire({
           titleText: 'All done!',
