@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import { calculateMA } from './calculateMA';
-import { color_list, colors } from './chartColors';
+import { colorList } from './chartColors';
 
 export function candleChartOptions(candleStickData, stockID = 'STOCK') {
   let close = candleStickData.c;
@@ -19,7 +19,7 @@ export function candleChartOptions(candleStickData, stockID = 'STOCK') {
     ]);
   }
 
-  let stock_date = candleStickData.t.map((utime) => {
+  let stock_date = candleStickData.t.map((utime: number) => {
     return dayjs(utime * 1000).format('YYYY-MM-DD');
   });
 
@@ -32,7 +32,7 @@ export function candleChartOptions(candleStickData, stockID = 'STOCK') {
 
   let option = {
     animation: false,
-    color: color_list,
+    color: colorList,
     title: {
       left: 'center',
     },
@@ -82,7 +82,7 @@ export function candleChartOptions(candleStickData, stockID = 'STOCK') {
         boundaryGap: false,
         axisLine: { lineStyle: { color: '#777' } },
         axisLabel: {
-          formatter: function (value) {
+          formatter: function (value: dayjs.ConfigType) {
             return dayjs(value).format('MM-dd');
           },
         },
@@ -162,19 +162,19 @@ export function candleChartOptions(candleStickData, stockID = 'STOCK') {
           {
             id: 'MA5',
             type: 'text',
-            style: { fill: color_list[1] },
+            style: { fill: colorList[1] },
             left: 0,
           },
           {
             id: 'MA10',
             type: 'text',
-            style: { fill: color_list[2] },
+            style: { fill: colorList[2] },
             left: 'center',
           },
           {
             id: 'MA20',
             type: 'text',
-            style: { fill: color_list[3] },
+            style: { fill: colorList[3] },
             right: 0,
           },
         ],
