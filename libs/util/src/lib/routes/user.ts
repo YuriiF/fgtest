@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Response, Request } from 'miragejs';
 import { handleError } from '../errors/handle-error';
 import { User } from '@fgtest/stock/interfaces';
