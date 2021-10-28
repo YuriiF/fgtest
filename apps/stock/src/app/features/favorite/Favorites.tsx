@@ -35,7 +35,7 @@ const Favorites: FC = () => {
   }, [dispatch, user]);
 
   const createFavorite = async () => {
-    const result = (await Swal.mixin({
+    const result = await (Swal.mixin({
       input: 'text',
       confirmButtonText: 'Next &rarr;',
       showCancelButton: true,
@@ -54,7 +54,7 @@ const Favorites: FC = () => {
         },
         inputValue: 'private',
       },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     ])) as any;
 
     if (result.value) {
@@ -67,6 +67,7 @@ const Favorites: FC = () => {
         type: value[1],
         userId: user?.id,
       });
+
       if (favorite && user) {
         dispatch(addFavorite([favorite] as Favorite[]));
         dispatch(addFavorite([favorite] as Favorite[]));
