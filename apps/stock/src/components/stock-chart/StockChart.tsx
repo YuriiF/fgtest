@@ -2,20 +2,16 @@ import React, { useEffect, useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-// import { Route, Link } from 'react-router-dom';
 
 import { stockAPI } from '@fgtest/util';
 import { candleChartOptions } from './getChartOptions';
 import { selectActiveStockId } from '../../app/features/stock/stockChart.slice';
 
-/* eslint-disable-next-line */
-export interface StockChartProps {}
-
 const StyledStockChart = styled.div`
   color: pink;
 `;
 
-export function StockChart(props: StockChartProps) {
+export function StockChart() {
   const [option, setOption] = useState({});
   const activeStockId = useSelector(selectActiveStockId);
 
