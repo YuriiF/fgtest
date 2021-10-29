@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { calculateMA } from './calculateMA';
 import { colorList } from './chartColors';
 
-export function candleChartOptions(candleStickData, stockID = 'STOCK') {
+export function candleChartOptions(candleStickData, stockID = 'GOOG') {
   let close = candleStickData.c;
 
   const length = candleStickData.o.length - 1;
@@ -38,7 +38,7 @@ export function candleChartOptions(candleStickData, stockID = 'STOCK') {
     },
     legend: {
       top: 30,
-      data: [`${stockID || 'STOCK'}`, 'MA5', 'MA10', 'MA20', 'MA30'],
+      data: [`${stockID || 'GOOG'}`, 'MA5', 'MA10', 'MA20', 'MA30'],
     },
     tooltip: {
       trigger: 'axis',
@@ -198,7 +198,7 @@ export function candleChartOptions(candleStickData, stockID = 'STOCK') {
       },
       {
         type: 'candlestick',
-        name: `${stockID || 'STOCK'}`,
+        name: `${stockID || 'GOOG'}`,
         data: stocks,
         itemStyle: {
           normal: {

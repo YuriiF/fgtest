@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'rendition';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 import type {} from 'styled-components/cssprop';
 
 import { selectAllStock } from '../../app/features/stock/stock.slice';
-import { setActiveStockId } from '../../app/features/stock/stockChart.slice';
+import {
+  setActiveStockId,
+  selectActiveStockId,
+} from '../../app/features/stock/stockChart.slice';
 
 const formatToPercent = (percent: number) => `${percent} %`;
 
@@ -22,6 +25,7 @@ const formatDate = (v: number, rv: any) =>
 
 export function StockList() {
   const stock = useSelector(selectAllStock);
+  const activeStock = useSelector(selectActiveStockId);
   const dispatch = useDispatch();
 
   const handleRowClick = (event: { id: string }) => {
@@ -80,6 +84,7 @@ export function StockList() {
       data={stock}
       onRowClick={handleRowClick}
       rowKey="id"
+      highlightedRows={[activeStock]}
       css={`
         background-color: white;
       `}
