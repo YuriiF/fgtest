@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Card, Checkbox } from 'rendition';
 import type {} from 'styled-components/cssprop';
+import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../store/store';
 
 import {
   selectAllStock,
   stockActions,
 } from '../../app/features/stock/stock.slice';
 
-import { useDispatch } from 'react-redux';
-
 const FavoriteRow = ({ favorite }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleChange = (ev: { target: { id: string } }) => {
     const { id } = ev.target;
@@ -26,8 +26,6 @@ const FavoriteRow = ({ favorite }) => {
     }
   };
 
-  const check = favorite.isFavorite ? { checked: true } : '';
-
   return (
     <div>
       <Checkbox
@@ -38,7 +36,7 @@ const FavoriteRow = ({ favorite }) => {
         css={`
           background-color: ${favorite.isFavorite ? 'yellow' : 'white'};
         `}
-        {...check}
+        checked={favorite?.isFavorite}
       />
     </div>
   );
