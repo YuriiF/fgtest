@@ -7,25 +7,8 @@ import { selectIsAuthenticated } from './auth/auth.slice';
 const Auth = lazy(() => import('../app/auth/Auth'));
 const Dashboard = lazy(() => import('../components/dashboard/Dashboard'));
 
-const StyledApp = styled.div`
-  font-family: sans-serif;
-  margin: 50px auto;
-
-  main {
-    padding: 0 36px;
-  }
-
-  h1 {
-    text-align: center;
-    padding: 1rem;
-    font-size: 24px;
-  }
-`;
-
 const App = () => {
-  let isLoggedIn = useSelector(
-    selectIsAuthenticated
-  );
+  let isLoggedIn = useSelector(selectIsAuthenticated);
 
   // isLoggedIn = true;
 
