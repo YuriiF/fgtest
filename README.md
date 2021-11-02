@@ -1,11 +1,5 @@
 # README #
 
-## What is this repository for? ##
-
-This repo is solely for the interview purpose to give candidates a well established task for their expertise and ability evaluation.
-
-It is a fork of a original repository which contains a coding exercise explained later. You have writing permissions to it, so you can push to it whatever you like regarding this task, and we would be happy if you did.
-
 ## The task ##
 
 We want you to create a simple, but functional interface in React that displays the stocks, currencies or cryptocurrencies exchange rates (pick one category, entirely up to you which one you would be more interested in). It should be created from â€œscratchâ€ (tho can use React UI frameworks and such), potentially using some bootstrap functionality you are comfortable with.
@@ -43,10 +37,6 @@ Feel free to improvise wherever you feel like the task is unclear, we are primar
 ## Resources ##
 
 - Stock, Currencies and Crypto API: <https://finnhub.io> (available for free after signup with 60 API calls/minute)
-
-## Who do I talk to? ##
-
-Please, do not hessitate to reach out to your point of contact or pio@futureuniverse.com if in a need of assistastance or would like a clarification on anything related to what is written here.
 
 ## Install and Run
 
